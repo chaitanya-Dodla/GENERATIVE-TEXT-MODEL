@@ -1,0 +1,54 @@
+from transformers import pipeline
+from transformers.utils import logging
+
+logging.set_verbosity_error()
+
+import torch
+
+print("Loading GPT-2 model...")
+
+generator = pipeline(
+    "text-generation",
+    model="gpt2"
+)
+
+print("Model Loaded Successfully!\n")
+
+# TEXT GENERATION
+
+def generate_text(prompt,
+                  max_length=150,
+                  num_return_sequences=1):
+
+    result = generator(
+        prompt,
+        max_length=max_length,
+        num_return_sequences=num_return_sequences,
+        temperature=0.9,
+        top_k=50,
+        top_p=0.95,
+        do_sample=True,
+        pad_token_id=50256
+    )
+
+    return result
+
+# USER INPUT
+
+print("=== GENERATIVE TEXT MODEL ===\n")
+
+user_prompt = input("ENTER A TOPIC OR PROMPT: \n\n")
+
+# GENERATE TEXT
+
+generated_output = generate_text(user_prompt)
+
+# DISPLAY RESULT
+
+print("\n=== GENERATED TEXT ===\n")
+
+for i, text in enumerate(generated_output):
+
+  print(text['generated_text'])
+
+  print("\n" + "="*60 + "\n")
