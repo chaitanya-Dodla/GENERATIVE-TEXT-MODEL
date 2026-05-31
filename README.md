@@ -43,3 +43,6 @@ This project is useful for beginners to understand how AI text generation works.
 
 This project shows how Artificial Intelligence can generate human-like text automatically using Python and GPT-2. By using Google Colab and Hugging Face, even beginners can easily build AI-based text generation applications without advanced programming knowledge.
 
+# OUTPUT
+
+<img width="971" height="505" alt="Image" src="https://github.com/user-attachments/assets/e6b72248-a521-4e5f-8b6b-8ca01b521fbb" />
